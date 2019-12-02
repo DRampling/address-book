@@ -1,5 +1,5 @@
 import React from 'react'
 
-export const ContactsPage: React.FC = () => {
-  return <div>Contacts Page</div>
+export const ContactPage: React.FC = () => {
+  return <div>Contact Page</div>
 }

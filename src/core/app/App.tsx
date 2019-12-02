@@ -1,9 +1,9 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
-import { ContactPage } from '../../features/contacts/pages/ContactsPage'
-import { ContactsPage } from '../../features/contacts/pages/ContactPage'
+import { ContactPage } from '../../features/contacts/pages/ContactPage'
 import { NavBar } from '../../shared/components/NavBar'
+import ContactsPage from '../../features/contacts/pages/ContactsPage'
 
 const App: React.FC = () => {
   return (

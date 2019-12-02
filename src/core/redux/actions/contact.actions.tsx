@@ -1,15 +1,5 @@
-import { Contact } from '../../models/Contact'
-import { ContactTypes } from '../types/contact.types'
-import { Error } from '../../models/Error'
+import { action } from 'typesafe-actions'
 
-export function loadContacts() {
-  return { type: ContactTypes.LOAD_CONTACTS }
-}
+import { ContactActionTypes } from '../types/contact.types'
 
-export function loadContactsSuccess(contacts: Contact[]) {
-  return { type: ContactTypes.LOAD_CONTACTS_SUCCESS, payload: { contacts } }
-}
-
-export function loadContactsFail(error: Error) {
-  return { type: ContactTypes.LOAD_CONTACTS_FAIL, payload: { error } }
-}
+export const loadContacts = () => action(ContactActionTypes.LOAD_CONTACTS)
