@@ -1,22 +1,24 @@
 import React from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'connected-react-router'
+import { Store } from 'redux'
+import { History } from 'history'
 
-import { ContactPage } from '../../features/contacts/pages/ContactPage'
-import { NavBar } from '../../shared/components/NavBar'
-import ContactsPage from '../../features/contacts/pages/ContactsPage'
+import Routes from '../routes'
+import { ApplicationState } from '../models/ApplicationState'
 
-const App: React.FC = () => {
+export interface ApplicationProps {
+  store: Store<ApplicationState>
+  history: History
+}
+
+const App: React.FC<ApplicationProps> = ({ store, history }) => {
   return (
-    <div>
-      <NavBar />
-      <Switch>
-        <Route path="/contacts/:contactID" component={ContactPage} />
-        <Route path="/contacts" component={ContactsPage} />
-        <Route path="/">
-          <Redirect to="/contacts" />
-        </Route>
-      </Switch>
-    </div>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <Routes />
+      </ConnectedRouter>
+    </Provider>
   )
 }
 
